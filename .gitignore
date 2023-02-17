@@ -1,0 +1,12 @@
+/*.iml
+/.idea/
+/target/
+/logs/
+/reports/
+/report/
+/test-output
+/**/screenshots
+.DS_Store
+.vscode
+.history
+/.settings/
