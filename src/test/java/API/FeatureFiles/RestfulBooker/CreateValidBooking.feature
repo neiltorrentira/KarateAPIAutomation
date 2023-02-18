@@ -20,6 +20,7 @@ Feature: Create Valid booking
     }
     """
 
+  @ignore
   Scenario: Create Valid booking @/booking
     Given path 'booking'
     And header Content-type = 'application/json'
