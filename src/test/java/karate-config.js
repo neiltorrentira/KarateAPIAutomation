@@ -6,7 +6,9 @@ function fn() {
   }
   var config = {
     env: env,
-    myVarName: 'someValue',
+    UserName: 'admin',
+    Passwords: 'cGFzc3dvcmQxMjM',
+    password: 'password123',
     apiService: 'http://localhost:3001',
     restfulBooker: 'http://localhost:3001',
     wireMock: 'http://localhost:9876'
@@ -16,7 +18,7 @@ function fn() {
   } else if (env == 'wiremock') {
     config.apiService = 'http://localhost:9876'
   }
-  karate.configure('connectTimeout', 5000);
-  karate.configure('readTimeout', 5000);
+  karate.configure('connectTimeout', 6000);
+  karate.configure('readTimeout', 6000);
   return config;
 }
