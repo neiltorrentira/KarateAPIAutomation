@@ -12,7 +12,7 @@ Feature: Create Valid Random booking
     * def firstname = 'User_' + randomFirst
     * def lastname = randomLast + randomNum
     * def totalprice = randomNum
-    * def rqst =
+    * def rqstBody =
     """
     {
     firstname: '#(firstname)',
@@ -33,7 +33,7 @@ Feature: Create Valid Random booking
     And header Content-type = 'application/json'
     And header Accept = 'application/json'
     And header x-access-token = authtoken
-    And request rqst
+    And request rqstBody
     When method post
     Then status 200
     And print response

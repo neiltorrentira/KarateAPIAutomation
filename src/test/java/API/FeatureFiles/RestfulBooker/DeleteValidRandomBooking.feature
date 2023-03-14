@@ -7,7 +7,7 @@ Feature: Delete Valid Random booking
     * def authtoken = UID.authtoken
     * print bookingId
     * print authtoken
-    * def authorize = 'Basic YWRtaW46cGFzc3dvcmQxMjM='
+    * def authorize = Authorization
 
   Scenario: Delete Valid Random /booking/{bookingId}
     Given path 'booking'

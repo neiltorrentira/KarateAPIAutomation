@@ -2,7 +2,7 @@ Feature: Validate "ping" for Restful Booker
 
   Background: Initialize stuff
     Given url apiService
-    #* configure retry = { count: 10, interval: 5000 }
+    * configure retry = { count: 3, interval: 5000 }
 
   Scenario: Validate /ping response 201
     Given path 'ping'
