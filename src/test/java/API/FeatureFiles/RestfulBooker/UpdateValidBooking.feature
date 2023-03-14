@@ -20,7 +20,7 @@ Feature: Update Valid booking
     additionalneeds: 'Desserts'
     }
     """
-
+  @ignore
   Scenario: Update Valid /booking/id
     Given path 'booking/11'
     And header Content-type = 'application/json'

@@ -2,7 +2,7 @@ function fn() {
   var env = karate.env; // get system property 'karate.env'
   karate.log('Karate.env System Property was : ', env);
   if (!env) {
-    env = 'dev';
+    env = 'prod';
   }
   var config = {
     env: env,
@@ -15,6 +15,8 @@ function fn() {
   }
   if (env == 'dev') {
     config.apiService = 'http://localhost:3001'
+  } else if (env == 'prod') {
+    config.apiService = 'https://restful-booker.herokuapp.com'
   } else if (env == 'wiremock') {
     config.apiService = 'http://localhost:9876'
   }
