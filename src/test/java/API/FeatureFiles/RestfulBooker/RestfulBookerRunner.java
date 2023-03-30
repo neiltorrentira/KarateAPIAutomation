@@ -17,7 +17,7 @@ public class RestfulBookerRunner {
     void testParallel() {
         Results results = Runner.path("classpath:API/FeatureFiles/RestfulBooker")
                 .outputCucumberJson(true)
-                .parallel(3);
+                .parallel(1);
         generateReport(results.getReportDir());
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
