@@ -7,16 +7,17 @@ trigger:
 - master
 
 - pool:
-  vmImage: windows-latest
+  vmImage: 'windows-latest'
 
+steps:
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'clean test  -Dkarate.options=classpath:API/FeatureFiles/RestfulBooker/ -Dtest=RestfulBookerRunner -Dkarate.env=prod'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
+    jdkVersionOption: '11'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    goals: 'clean test -Dkarate.options=classpath:API/FeatureFiles/RestfulBooker/ -Dtest=RestfulBookerRunner -Dkarate.env=prod'
+
