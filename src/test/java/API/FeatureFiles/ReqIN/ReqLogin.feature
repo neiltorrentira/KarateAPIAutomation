@@ -8,7 +8,7 @@ Background: Initialize Restful Booker
     * def email = ReqEmail
     * print email
 
-  @login #@ignore
+  @login @ignore
   Scenario: Login and fetch token @/auth
     Given path 'api/login'
     And header Content-type = 'application/json'
