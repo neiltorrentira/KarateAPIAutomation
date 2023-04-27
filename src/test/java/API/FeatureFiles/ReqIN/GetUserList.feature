@@ -14,3 +14,16 @@ Feature: Get All Users
     When method get
     Then status 200
     And print response
+
+    * def first = response.data[0]
+    * print first
+
+    Given path 'api/users', first.id
+    When method get
+    Then status 200
+    And print response
+    And match response ==
+    """
+    {"data":{"id": '#number', "email": '#string', "first_name": '#string', "last_name": '#string', "avatar": '#string'},
+    "support": {"url": '#string', "text": '#string'}}
+    """

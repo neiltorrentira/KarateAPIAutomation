@@ -13,3 +13,12 @@ Feature: Get All booking
     When method get
     Then status 200
     And print response
+
+    * def first = response[0]
+    * print first
+
+    Given path 'booking', first.bookingid
+    When method get
+    Then status 418
+    And print response
+    #And match response == {"bookingid": '#number'}
