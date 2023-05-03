@@ -1,9 +1,11 @@
 package Utils;
 
+import net.masterthought.cucumber.Configuration;
+import net.masterthought.cucumber.ReportBuilder;
+import org.apache.commons.io.FileUtils;
+import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.Base64;
-import java.util.Date;
-import java.util.Random;
+import java.util.*;
 
 public class Utils {
     public static String decode64(String encodedStr){
@@ -54,6 +56,15 @@ public class Utils {
         timeStamp = new SimpleDateFormat("h:mm:ss.SSS")
                 .format(new Date());
         return timeStamp;
+    }
+
+    public static void generateReport(String karateOutputPath) {
+        Collection<File> jsonFiles = FileUtils.listFiles(new File(karateOutputPath), new String[] {"json"}, true);
+        List<String> jsonPaths = new ArrayList<>(jsonFiles.size());
+        jsonFiles.forEach(file -> jsonPaths.add(file.getAbsolutePath()));
+        Configuration config = new Configuration(new File("target"), "APIAutomation");
+        ReportBuilder reportBuilder = new ReportBuilder(jsonPaths, config);
+        reportBuilder.generateReports();
     }
 
 }
